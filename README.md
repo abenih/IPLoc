@@ -1,55 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IPLoc
 
-## Getting Started
+Author: Benji
 
-First, run the development server:
+IPLoc is a small Next.js demo that guesses a visitor's approximate location using the IPStack API and displays the result in a single responsive card. The card shows:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- City, Country
+- IP address
+- Time zone
+- ISP
+- Device type (derived from user agent)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+It also includes a simple rating control so visitors can indicate how accurate the guess was.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Requirements
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js (LTS recommended)
 
-## Learn More
+## Setup
 
-To learn more about Next.js, take a look at the following resources:
+1. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Create a `.env.local` file in the project root and add your IPStack API key:
 
-## Deploy on Vercel
+   ```text
+   IPSTACK_KEY=your_ipstack_key_here
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## IPStack demo configuration
-
-This project includes a small playful demo "Guess Who You Are?" that uses the IPStack API. To make it work locally:
-
-1. Create a file named `.env.local` in the project root.
-2. Add your IPStack API key:
-
-```
-IPSTACK_KEY=your_ipstack_key_here
-```
-
-3. Start the dev server:
+## Run (development)
 
 ```bash
 npm run dev
 ```
 
-The app exposes a server-side API proxy at `/api/ip` so your API key stays on the server.
+Open http://localhost:3000 in your browser.
+
+## Run (production build)
+
+```bash
+npm run build
+npm start
+```
+
+## Notes
+
+- Keep `IPSTACK_KEY` secret. The project uses a server-side API route at `/api/ip` to proxy requests to IPStack so the key is not exposed in the browser.
