@@ -24,3 +24,20 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Demo-specific styles for the Guess Who You Are card */
+.card {
+  backdrop-filter: blur(6px);
+}
+
+.card .info > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button { cursor: pointer; }
+
+@media (max-width: 640px) {
+  .card { padding: 1rem; }
+}

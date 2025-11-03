@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## IPStack demo configuration
+
+This project includes a small playful demo "Guess Who You Are?" that uses the IPStack API. To make it work locally:
+
+1. Create a file named `.env.local` in the project root.
+2. Add your IPStack API key:
+
+```
+IPSTACK_KEY=your_ipstack_key_here
+```
+
+3. Start the dev server:
+
+```bash
+npm run dev
+```
+
+The app exposes a server-side API proxy at `/api/ip` so your API key stays on the server.
